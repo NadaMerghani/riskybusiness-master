@@ -1,0 +1,102 @@
+.storyScreen-container {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.1rem;
+  color: var(--primaryColor);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  animation: storyScreen-load 400ms ease-in 200ms;
+  animation-fill-mode: forwards;
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.storyScreen-headerImg {
+  max-height: 512px;
+  width: 1024px;
+  border-top: 5px solid var(--secondaryColor);
+  border-bottom: 5px solid var(--secondaryColor);
+}
+
+.storyScreen-headerImg img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.storyScreen-textContainer {
+  font-size: 1.4rem;
+  max-width: 1024px;
+  margin: 5vh 5vw;
+  border-top: 5px solid var(--tertiaryColor);
+  border-bottom: 5px solid var(--tertiaryColor);
+}
+
+.storyScreen-text {
+  font-family: "Turret Road", cursive;
+}
+
+.storyScreen-link {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-image: linear-gradient(
+    to right,
+    var(--tertiaryColor),
+    var(--tertiaryColor) 50%,
+    var(--secondaryColor) 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 4vh;
+  position: relative;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+}
+
+.storyScreen-link:before {
+  content: "";
+  background: var(--tertiaryColor);
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  transition: all 0.5s ease-in-out;
+}
+
+.storyScreen-link:hover {
+  background-position: 0;
+}
+
+.storyScreen-link:hover::before {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .storyScreen-headerImg {
+    height: 100%;
+    width: 100%;
+  }
+
+  .storyScreen-textContainer {
+    width: 96vw;
+    margin: 5vh 1vw;
+  }
+}
+
+@keyframes storyScreen-load {
+  0% {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
